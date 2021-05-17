@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.try(:first_name) %> félicitation, une nouvelle personne vient de s'inscrire à votre événement !</h1>
+    <p>
+      Pour accéder à la liste des participant, connecte-toi via : <%= @url %>.
+    </p>
+    <p> À très vite sur on-va-sortir.herokuapp.com !
+  </body>
+</html>

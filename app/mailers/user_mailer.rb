@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
   default from: 'onvasortir@yopmail.com'
- 
+
   def welcome_email(user)
     @user = user 
 
