@@ -1,31 +1,46 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col">
       <br><br><br>
-<p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Email :</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Description :</strong>
-  <%= @user.description %>
-</p>
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Page d'utilisateur</h2>
+            <p><br>
+        <strong>Email :</strong>
+        <%= @user.email %>
+      </p>
 
-<p>
-  <strong>Prénom :</strong>
-  <%= @user.first_name %>
-</p>
+      <p>
+        <strong>Description :</strong>
+        <%= @user.description %>
+      </p>
 
-<p>
-  <strong>Nom :</strong>
-  <%= @user.last_name %>
-</p>
+      <p>
+        <strong>Prénom :</strong>
+        <%= @user.first_name %>
+      </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <p>
+        <strong>Nom :</strong>
+        <%= @user.last_name %>
+      </p>
+
+      <p>
+        <strong><%= link_to 'Modifier le mot de passe', edit_user_registration_path%></strong>
+      </p>
+
+            <button class="btn btn-outline-light" type="button"><%= link_to 'Editer', edit_user_path(@user) %></button>
+            <button class="btn btn-outline-light" type="button"><%= link_to 'Résilier son compte', user_path(@user), method: :delete, data: { confirm: 'Sans regret ? Toutes tes données seront perdues 😱' } %></button>
+          </div>
+        </div>
+      </div>
+<br>
+      <%= link_to 'Back', users_path %>
+      <br>
     </div>
   </div>
 </div>

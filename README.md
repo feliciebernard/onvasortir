@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bienvenue sur On va sortir ! 
+N'est-ce pas incroyable ? Pile le jour de l'ouverture des bars, on est fiers de vous annoncer la sortie de la toute nouvelle appli du moment :
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://on-va-sortir.herokuapp.com/

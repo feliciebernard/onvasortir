@@ -1,34 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <br><br><br>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @event.start_date %>
-</p>
+    <h1><br>Tous les détails de l'événement</h1>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @event.duration %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @event.price %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @event.location %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <p><%= @event.start_date %>, durée : <%= @event.duration %> minutes</td></p>
+          <h2><%= @event.title %></h2>
+          <p><%= @event.description %></p>
+          <p>Prix : <%= @event.price %> €, Lieu : <%= @event.location %></p>
+          <button class="btn btn-outline-light" type="button"><%= link_to 'Editer', edit_event_path(@event) %></button>
+          <button class="btn btn-outline-light" type="button"><%= link_to 'Effacer', event_path(@event), method: :delete, data: { confirm: 'Sans regret ? 😱' } %></button>
+        </div>
+      </div>
+    </div> <br>
+    <%= link_to 'Retour', events_path %>
+    <br>
+  </div>
+</div>
