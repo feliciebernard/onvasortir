@@ -27,63 +27,58 @@
             <a class="nav-link" href="/events/new">Créer un événement</a>
           </li>
 
-
           <%if current_user != nil%>
-          <div class="btn-group" role="group">
-            <li class="navbar-item">
-              
-              <button type="button" class="btn btn-info">
-                <%= link_to "Profil", user_path(current_user.id), class: 'nav-link' %>
-              </button>
-            </li>
-            <li class="navbar-item">
-              <button type="button" class="btn btn-danger">
-                <%= link_to "Se déconnecter", destroy_user_session_path, class: 'nav-link', :method => :delete %>
-              </button>
-            </li>
-          </div>
 
-          <%else%>
-          <div class="btn-group" role="group">
-            <li class="navbar-item">
-              <button type="button" class="btn btn-success">
-                <%= link_to "Se connecter", new_user_session_path %>
-              </button>
-            </li>
-            <li class="navbar-item">
-              <button type="button" class="btn btn-warning">
-                <%= link_to "S'inscrire", new_user_registration_path %>
-              </button>
-            </li>
-          </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profil/Se déconnecter
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#"><%= link_to "Profil", user_path(current_user.id), class: 'nav-link' %></a></li>
+              <li><a class="dropdown-item" href="#"><%= link_to "Se déconnecter", destroy_user_session_path, class: 'nav-link', :method => :delete %></a></li>
+            </ul>
+          </li>
+        </div>
 
-          <% end %>
-        </ul>
+        <%else%>
 
-      </div>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            S'inscrire/Se connecter
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#"><%= link_to "S'inscrire", new_user_registration_path %></a></li>
+            <li><a class="dropdown-item" href="#"><%= link_to "Se connecter", new_user_session_path %></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <% end %>
+
     </div>
-  </nav>
-  
-  <%= yield %>
+  </div>
+</nav>
+
+<%= yield %>
 <br>
-  <footer class="bg-dark text-center text-lg-start text-muted">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2021 Copyright : fait avec amour par toute l'équipe de On va sortir
-    </div>
-    <!-- Copyright -->
-  </footer>
+<footer class="bg-dark text-center text-lg-start text-muted">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright : fait avec amour par toute l'équipe de On va sortir
+  </div>
+  <!-- Copyright -->
+</footer>
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
+<!-- Option 2: Separate Popper and Bootstrap JS -->
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script> -->
 
-</body>
-</html>
+  </body>
+  </html>
 
 
 
