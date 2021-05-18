@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/', to: 'static_pages#index',  as: 'root'
+  get 'static_pages/secret'
+  devise_for :users
   resources :attendances
   resources :events
   resources :users

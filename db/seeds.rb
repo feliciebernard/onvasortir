@@ -7,5 +7,3 @@ require 'faker'
     description: Faker::GreekPhilosophers.quote,
     email: Faker::Name.first_name+"@yopmail.com")
 end
-
-tp User.all
