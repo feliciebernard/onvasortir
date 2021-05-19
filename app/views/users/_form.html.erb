@@ -1,3 +1,7 @@
+      <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-white bg-dark rounded-3">
+
       <%= form_with(model: user, local: true) do |form| %>
       <% if user.errors.any? %>
       <div id="error_explanation">
@@ -10,25 +14,27 @@
         </ul>
       </div>
       <% end %>
+<%= form_with(url: user_path(current_user.id), local: true, method: "patch") do |f| %>
 
-      <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-          <div class="h-100 p-5 text-white bg-dark rounded-3">
-            <h2>Change the background</h2>
-            <p><%= form.label :email %><br>
-              <%= form.text_field :email %>
-            </p>
-            <p><%= form.label :description %><br>
-              <%= form.text_area :description %>
-            </p>
-            <p><%= form.label :first_name %><br>
-              <%= form.text_field :first_name %>
-            </p>
-            <p><%= form.label :last_name %><br>
-              <%= form.text_field :last_name %>
-            </p>
-            <br>
-            <%= form.submit %>
+        <div class="form-group">
+          <%= f.label :description, "Votre description" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+<br>
+        <div class="form-group">
+          <%= f.label :first_name, "Prénom" %>
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+<br>
+        <div class="form-group">
+          <%= f.label :last_name, "Nom" %>
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+
+        <div class="actions mt-5">
+          <%= f.submit "Mettre à jour", class:"btn btn-outline-light"%>
+        </div>
+      <% end %>
           </div>
         </div>
       </div>

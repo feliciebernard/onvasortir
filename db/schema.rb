@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_095226) do
+ActiveRecord::Schema.define(version: 2021_05_19_101912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_05_18_095226) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_id"
+    t.index ["admin_id"], name: "index_events_on_admin_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -53,4 +55,5 @@ ActiveRecord::Schema.define(version: 2021_05_18_095226) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users", column: "admin_id"
 end

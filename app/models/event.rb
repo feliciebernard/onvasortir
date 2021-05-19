@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
   has_many :attendances
+  belongs_to :admin, class_name: "User"
 
   validates :start_date, presence: true
   validate :start_date_cannot_be_in_the_past
@@ -9,6 +10,7 @@ class Event < ApplicationRecord
       errors.add(:start_date, "La date ne peut pas être passée !")
     end
   end
+
 
   validates :duration, presence: true, numericality: {:greater_than_or_equal_to => 0}
   validate :duration_modulo_five

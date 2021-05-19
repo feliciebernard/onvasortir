@@ -1,6 +1,6 @@
 <div class="row align-items-md-stretch">
-  <div class="col">
-    <div class="h-100 p-5 bg-light border rounded-3">
+  <div class="col-md-6">
+    <div class="p-5 bg-light border rounded-3">
       <%= form_with(model: event, local: true) do |form| %>
       <% if event.errors.any? %>
       <div id="error_explanation">
@@ -14,33 +14,44 @@
       </div>
       <% end %>
 
-      <div class="row align-items-md-stretch">
-        <div class="col-md-6">
-          <div class="h-100 p-5 bg-light border rounded-3">
-            <h2>On veut tout savoir !<br></h2>
-            <p><%= form.label :date %><br>
-              <%= form.datetime_select :start_date %>
-            </p>
-            <p><%= form.label :durée_en_minutes %><br>
-              <%= form.number_field :duration %>
-            </p>
-            <p><%= form.label :titre %><br>
-              <%= form.text_field :title %>
-            </p>
-            <p> <%= form.label :détails %><br>
-              <%= form.text_area :description %>
-            </p>
-            <p><%= form.label :prix %><br>
-              <%= form.number_field :price %>
-            </p>
-            <p><%= form.label :lieu %><br>
-              <%= form.text_field :location %>
-            </p><br>
-            <%= form.submit :Ajouter %>
-          </div>
-        </div>
+      <%= form_with(model: @event, local: true) do |f| %>
+
+      <div class="form-group">
+        <%= f.label :start_date, "Date de début" %><br />
+        <%= f.date_field :start_date, autofocus: true, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :duration, "Durée(en minutes)" %><br />
+        <%= f.number_field :duration, step: 5, class: "form-control"%>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :title, "Titre de l'événement" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :description, "Description de l'événement" %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :price, "Prix de l'événement" %>
+        <%= f.number_field :price, in: 1..1000, step: 1, class: "form-control" %>
+      </div>
+      <br>
+      <div class="form-group">
+        <%= f.label :location, "Lieu de l'événement" %>
+        <%= f.text_field :location, class: "form-control" %>
+      </div>
+      <br>
+      <div class="actions mt-3">
+        <%= f.submit "Et c'est parti !", class:"btn btn-outline-secondary"%>
       </div>
       <% end %>
     </div>
+    <% end %>
   </div>
+</div>
 </div>

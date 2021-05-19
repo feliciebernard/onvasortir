@@ -12,6 +12,8 @@
           <h2><%= @event.title %></h2>
           <p><%= @event.description %></p>
           <p>Prix : <%= @event.price %> €, Lieu : <%= @event.location %></p>
+          <p>Contacter l'organisateur : <%= @event.admin.try(:email)%></p>
+          <p>Il y a pour l'instant <%=@event.attendances.count%> participants </p>
           <button class="btn btn-outline-light" type="button"><%= link_to 'Editer', edit_event_path(@event) %></button>
           <button class="btn btn-outline-light" type="button"><%= link_to 'Effacer', event_path(@event), method: :delete, data: { confirm: 'Sans regret ? 😱' } %></button>
         </div>

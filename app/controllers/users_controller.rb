@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :is_profile_owner?, only: [:show]
 
   # GET /users or /users.json
   def index
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(description: params[:description], first_name: params[:first_name], last_name: params[:last_name])
         format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -67,4 +68,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :encrypted_password, :description, :first_name, :last_name)
     end
+
+    def is_profile_owner?
+    unless current_user.id == params[:id].to_i
+      flash[:alert] = "Vous ne pouvez pas accéder au profil d'autres utilisateurs"
+      redirect_back(fallback_location: root_path)
+    end
+  end
   end

@@ -23,7 +23,7 @@ class EventsController < ApplicationController
 
   # POST /events or /events.json
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(title: params[:event][:title], description: params[:event][:description], start_date: params[:event][:start_date], duration: params[:event][:duration], price: params[:event][:price], location: params[:event][:location], admin: current_user)
 
     respond_to do |format|
       if @event.save
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1 or /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
+      if @event.update(title: params[:event][:title], description: params[:event][:description], start_date: params[:event][:start_date], duration: params[:event][:duration], price: params[:event][:price], location: params[:event][:location], admin: current_user)
         format.html { redirect_to @event, notice: "Event was successfully updated." }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -66,6 +66,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location)
+      params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location, :admin_id)
     end
 end

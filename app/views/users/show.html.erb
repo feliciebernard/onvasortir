@@ -29,12 +29,11 @@
         <%= @user.last_name %>
       </p>
 
-      <p>
-        <strong><%= link_to 'Modifier le mot de passe', edit_user_registration_path%></strong>
-      </p>
+      <div class="form-group">
+        <strong><%= link_to 'Modifier le mot de passe', edit_user_registration_path, class:"form-control" %> </strong>
+      </div>
 
-            <button class="btn btn-outline-light" type="button"><%= link_to 'Editer', edit_user_path(@user) %></button>
-            <button class="btn btn-outline-light" type="button"><%= link_to 'Résilier son compte', user_path(@user), method: :delete, data: { confirm: 'Sans regret ? Toutes tes données seront perdues 😱' } %></button>
+            <div class="actions mt-5"><%= link_to 'Editer', edit_user_path(@user), class:"btn btn-outline-light", type:"button"  %> <%= link_to 'Résilier son compte', user_path(@user), method: :delete, data: { confirm: 'Sans regret ? Toutes tes données seront perdues 😱' }, class:"btn btn-outline-light", type:"button"  %></div>
           </div>
         </div>
       </div>
